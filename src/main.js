@@ -1,22 +1,3 @@
-import Phaser from 'phaser'
+import { startGame } from "./lib";
 
-import MainScene from './MainScene'
-
-const config = {
-	type: Phaser.AUTO,
-	parent: 'app',
-	width: 800,
-	height: 600,
-	pixelArt: true,
-	physics: {
-		default: 'arcade',
-		arcade: {
-			debug: true,
-			gravity: { y: 850 },
-		},
-	},
-
-	scene: [MainScene],
-}
-
-export default new Phaser.Game(config)
+startGame();

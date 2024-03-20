@@ -1,0 +1,24 @@
+import Phaser from "phaser";
+
+import MainScene from "./MainScene";
+
+const config = {
+  type: Phaser.AUTO,
+  parent: "app",
+  width: 800,
+  height: 600,
+  pixelArt: true,
+  physics: {
+    default: "arcade",
+    arcade: {
+      debug: true,
+      gravity: { y: 850 },
+    },
+  },
+
+  scene: [MainScene],
+};
+
+export function startGame() {
+  return new Phaser.Game(config);
+}
