@@ -1,4 +1,7 @@
 import Phaser from "phaser";
+import cindyPNG from "./assets/cindy.png";
+import bgPNG from "./assets/background.png";
+import cubePNG from "./assets/cubes.png";
 
 export default class MainScene extends Phaser.Scene {
   bg: Phaser.GameObjects.Image;
@@ -52,12 +55,12 @@ export default class MainScene extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image("background", "/assets/background.png");
-    this.load.spritesheet("cindy", "/assets/cindy.png", {
+    this.load.image("background", bgPNG);
+    this.load.spritesheet("cindy", cindyPNG, {
       frameWidth: 64,
       frameHeight: 96,
     });
-    this.load.spritesheet("cubes", "/assets/cubes.png", {
+    this.load.spritesheet("cubes", cubePNG, {
       frameWidth: 32,
       frameHeight: 32,
     });
