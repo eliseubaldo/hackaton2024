@@ -52,12 +52,12 @@ export default class MainScene extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image("background", "../background.png");
-    this.load.spritesheet("cindy", "cindy.png", {
+    this.load.image("background", "/assets/background.png");
+    this.load.spritesheet("cindy", "/assets/cindy.png", {
       frameWidth: 64,
       frameHeight: 96,
     });
-    this.load.spritesheet("cubes", "cubes.png", {
+    this.load.spritesheet("cubes", "/assets/cubes.png", {
       frameWidth: 32,
       frameHeight: 32,
     });
