@@ -1,8 +1,9 @@
 {
-	"name": "phaser3-vite-template",
-	"private": true,
-	"version": "0.0.0",
-	"type": "module",
+	"name": "@cc/hackathon-2024",
+	"version": "0.0.1",
+	"publishConfig": {
+		"main": "dist/hackathon-2024.umd.js"
+	},
 	"scripts": {
 		"start": "vite",
 		"build": "vite build",
