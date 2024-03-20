@@ -2,6 +2,7 @@ import Phaser from "phaser";
 import cindyPNG from "./assets/cindy.png";
 import bgPNG from "./assets/background.png";
 import cubePNG from "./assets/cubes.png";
+import fontURL from "./assets/fonts/PressStart2P-Regular.ttf";
 
 export default class MainScene extends Phaser.Scene {
   bg: Phaser.GameObjects.Image;
@@ -64,7 +65,7 @@ export default class MainScene extends Phaser.Scene {
       frameWidth: 32,
       frameHeight: 32,
     });
-    this.loadFont("NES", "fonts/PressStart2P-Regular.ttf");
+    this.loadFont("NES", fontURL);
   }
 
   create() {
