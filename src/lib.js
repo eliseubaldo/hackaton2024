@@ -4,7 +4,7 @@ import MainScene from "./MainScene";
 
 const config = {
   type: Phaser.AUTO,
-  parent: "app",
+  parent: "HackathonActivity",
   width: 800,
   height: 600,
   pixelArt: true,
