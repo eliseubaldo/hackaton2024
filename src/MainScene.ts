@@ -11,6 +11,7 @@ export default class MainScene extends Phaser.Scene {
   facingDirection: string;
 
   cubeGroup: Phaser.Physics.Arcade.StaticGroup;
+  isFinishedLoading: boolean = false;
 
   classCraftCB: any;
   questionAnswer: {
@@ -70,6 +71,7 @@ export default class MainScene extends Phaser.Scene {
   }
 
   preload() {
+    this.loadFont("NES", fontURL);
     this.load.image("background", bgPNG);
     this.load.spritesheet("cindy", cindyPNG, {
       frameWidth: 64,
@@ -79,10 +81,15 @@ export default class MainScene extends Phaser.Scene {
       frameWidth: 32,
       frameHeight: 32,
     });
-    this.loadFont("NES", fontURL);
+
+    this.load.on('complete', function () {
+      console.log('completed');
+      this.isFinishedLoading = true;
+      this.createAll();
+    }, this);
   }
 
-  create() {
+  createAll() {
    
     const text = `Solve the Addition:`;
     const mathQuestion = "3 + ? = 10";
@@ -111,7 +118,9 @@ export default class MainScene extends Phaser.Scene {
   }
 
   update(time: number, delta: number): void {
-    this.cindyMovement();
+    if(this.isFinishedLoading) {
+      this.cindyMovement();
+    }
   }
 
   cindyMovement() {
