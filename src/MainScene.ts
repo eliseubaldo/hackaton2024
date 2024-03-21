@@ -13,6 +13,10 @@ export default class MainScene extends Phaser.Scene {
   cubeGroup: Phaser.Physics.Arcade.StaticGroup;
 
   classCraftCB: any;
+  questionAnswer: {
+    answer:number,
+    question: string,
+  };
 
   tentatives: number = 0;
 
@@ -50,6 +54,7 @@ export default class MainScene extends Phaser.Scene {
   init(data) {
     console.log('Scene data:',data);
     this.classCraftCB = data.classCraftCB;
+    this.questionAnswer = data.questionAnswerObj;
   }
 
   loadFont(name, url) {
@@ -160,8 +165,9 @@ export default class MainScene extends Phaser.Scene {
       cube.setOrigin(0);
       cube.setBodySize(58, 58);
       cube.setOffset(20, 20);
+      cube.text = index;
       startPos.x += 80;
-      if (index === 7) {
+      if (index === this.questionAnswer.answer) {
         cube.isRightAnswer = true;
       }
     }
@@ -215,7 +221,7 @@ export default class MainScene extends Phaser.Scene {
     } else {
       this.showAnswer(true);
       this.handleRightAnswer(cube);
-      this.classCraftCB(this.tentatives);
+      this.classCraftCB(cube.text);
     }
   }
 

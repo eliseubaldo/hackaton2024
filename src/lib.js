@@ -3,8 +3,13 @@ import Phaser from "phaser";
 import MainScene from "./MainScene";
 
 const testCB = (answer) => {
-  alert(answer)
+  console.log('CORRECT! ', answer)
 }
+
+const questionAnswer = {
+  answer: 7,
+  question: 'abc ?',
+};
 
 const config = {
   type: Phaser.AUTO,
@@ -26,5 +31,5 @@ const config = {
 
 export function startGame(answerCallback, questionAnswerObj) {
   const game = new Phaser.Game(config);
-  game.scene.start('main', {classCraftCB: answerCallback, questionAnswerObj})
+  game.scene.start('main', {classCraftCB: answerCallback || testCB , questionAnswerObj: questionAnswerObj || questionAnswer})
 }
