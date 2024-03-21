@@ -12,6 +12,10 @@ export default class MainScene extends Phaser.Scene {
 
   cubeGroup: Phaser.Physics.Arcade.StaticGroup;
 
+  classCraftCB: any;
+
+  tentatives: number = 0;
+
   infoText: Phaser.GameObjects.Text;
   infoTextProperties = {
     fontFamily: "NES",
@@ -43,6 +47,11 @@ export default class MainScene extends Phaser.Scene {
     super("main");
   }
 
+  init(data) {
+    console.log('Scene data:',data);
+    this.classCraftCB = data.classCraftCB;
+  }
+
   loadFont(name, url) {
     let newFont = new FontFace(name, `url(${url})`);
     newFont
@@ -69,6 +78,7 @@ export default class MainScene extends Phaser.Scene {
   }
 
   create() {
+   
     const text = `Solve the Addition:`;
     const mathQuestion = "3 + ? = 10";
     this.createAnims();
@@ -198,12 +208,14 @@ export default class MainScene extends Phaser.Scene {
   }
 
   hitCube(cube) {
+    this.tentatives ++;
     if (!cube.isRightAnswer) {
       cube.destroy();
       this.showAnswer(false);
     } else {
       this.showAnswer(true);
       this.handleRightAnswer(cube);
+      this.classCraftCB(this.tentatives);
     }
   }
 

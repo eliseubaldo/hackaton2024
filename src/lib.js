@@ -2,6 +2,10 @@ import Phaser from "phaser";
 
 import MainScene from "./MainScene";
 
+const testCB = (answer) => {
+  alert(answer)
+}
+
 const config = {
   type: Phaser.AUTO,
   parent: "HackathonActivity",
@@ -15,10 +19,12 @@ const config = {
       gravity: { y: 850 },
     },
   },
+  
 
   scene: [MainScene],
 };
 
-export function startGame() {
-  return new Phaser.Game(config);
+export function startGame(answerCallback, questionAnswerObj) {
+  const game = new Phaser.Game(config);
+  game.scene.start('main', {classCraftCB: answerCallback, questionAnswerObj})
 }
