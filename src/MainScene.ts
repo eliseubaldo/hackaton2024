@@ -221,8 +221,8 @@ export default class MainScene extends Phaser.Scene {
     } else {
       this.showAnswer(true);
       this.handleRightAnswer(cube);
-      this.classCraftCB(cube.text);
     }
+    this.classCraftCB(cube.text);
   }
 
   showAnswer(isCorrect: boolean) {
