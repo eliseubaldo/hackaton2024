@@ -1,6 +1,6 @@
 {
 	"name": "@cc/hackathon-2024",
-	"version": "0.0.11",
+	"version": "0.0.12",
 	"publishConfig": {
 		"main": "dist/hackathon-2024.umd.js"
 	},

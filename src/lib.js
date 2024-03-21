@@ -3,12 +3,12 @@ import Phaser from "phaser";
 import MainScene from "./MainScene";
 
 const testCB = (answer) => {
-  console.log('CORRECT! ', answer)
-}
+  console.log("CORRECT! ", answer);
+};
 
 const questionAnswer = {
   answer: 7,
-  question: 'abc ?',
+  question: "abc ?",
 };
 
 const config = {
@@ -24,12 +24,16 @@ const config = {
       gravity: { y: 850 },
     },
   },
-  
 
   scene: [MainScene],
 };
 
 export function startGame(answerCallback, questionAnswerObj) {
   const game = new Phaser.Game(config);
-  game.scene.start('main', {classCraftCB: answerCallback || testCB , questionAnswerObj: questionAnswerObj || questionAnswer})
+  game.scene.start("main", {
+    classCraftCB: answerCallback || testCB,
+    questionAnswerObj: questionAnswerObj || questionAnswer,
+  });
+
+  return game;
 }
